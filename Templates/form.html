@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Information Form</title>
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+</head>
+<body>
+
+    <form action="{% url 'form.html' %}" method="post">
+        {% csrf_token %}
+        <h2>Patient Information Form</h2>
+        <table>
+            <tr>
+                <th colspan="2">Upload Photo</th>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <!-- Add your file upload input here -->
+                    <input type="file" name="photo" accept="image/*" capture="camera" id="photo">
+                </td>
+            </tr>
+            <tr>
+                <th>First Name</th>
+                <td><input type="text" name="first_name" id="first_name" required></td>
+            </tr>
+            <tr>
+                <th>Last Name</th>
+                <td><input type="text" name="last_name" id="last_name" required></td>
+            </tr>
+            <tr>
+                <th>Date of Birth</th>
+                <td><input type="date" name="dob" id="dob" required></td>
+            </tr>
+            <tr>
+                <th>Gender</th>
+                <td>
+                    <select name="gender" id="gender" required>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Marital Status</th>
+                <td>
+                    <select name="marital_status" id="marital_status" required>
+                        <option value="single">Single</option>
+                        <option value="married">Married</option>
+                        <option value="divorced">Divorced</option>
+                        <option value="widowed">Widowed</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>ID Number</th>
+                <td><input type="text" name="id_number" id="id_number" required></td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td><input type="text" name="address" id="address" required></td>
+            </tr>
+            <tr>
+                <th>Phone Number</th>
+                <td><input type="text" name="phone_number" id="phone_number" required></td>
+            </tr>
+            <tr>
+                <th>Email Address</th>
+                <td><input type="email" name="email" id="email" required></td>
+            </tr>
+            <tr>
+                <th>County</th>
+                <td><input type="text" name="county" id="county" required></td>
+            </tr>
+            <tr>
+                <th>Subcounty</th>
+                <td><input type="text" name="subcounty" id="subcounty" required></td>
+            </tr>
+            <tr>
+                <th colspan="2">Emergency Contact</th>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td><input type="text" name="emergency_name" id="emergency_name" required></td>
+            </tr>
+            <tr>
+                <th>Relationship</th>
+                <td><input type="text" name="emergency_relationship" id="emergency_relationship" required></td>
+            </tr>
+            <tr>
+                <th>Phone Number</th>
+                <td><input type="text" name="emergency_phone_number" id="emergency_phone_number" required></td>
+            </tr>
+        </table>
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Search</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
+  <link rel="stylesheet" href="{% static 'css/search.css' %}">
+</head>
+<body>
+  <div class="patient_container">
+
+    <header>
+      <h2><a href="{% url 'index.html' %}"><i class="ion-plane"></i> DOC MASHINANI</a></h2>
+      <nav>
+        <ul>
+          <li>
+            <a style="color: #fff;" href="{% url 'form.html' %}" title="Enter new patient">New Patient</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  
+    <div class="cover">
+      <h1>Patient Search</h1>
+      <form  class="search-form" action="{% url 'patient_search.html' %}" method="get">
+        {% csrf_token %}
+        <label for="search_query">
+          <i class="ion-location"></i>
+        </label>
+        <input class="inputbox" type="search" placeholder="Enter Patient Email" name="search_query" required>
+        <button type="submit" class="search">
+          <i class="fas fa-search"></i>
+        </button>        
+      </form>
+    </div>
+  
+  </div>
+</body>
+</html>

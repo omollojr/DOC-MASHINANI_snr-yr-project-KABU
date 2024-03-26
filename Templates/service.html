@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serve</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/serve.css' %}">
+</head>
+<body class="body">
+    <div class="policy">
+        {% for message in messages %}
+         <h3>{{message}}</h3>
+         {% endfor %}
+      </div>
+    <div class="card">
+        <div class="left-container">
+            <form id="service.html" method="POST">
+                {% csrf_token %}
+                <table class="table table-bordered">
+                    <br>
+                    <br>
+                    <tr>
+                        <th width="30%">User_ID</th>
+                        <td width="2%">:</td>
+                        <td><input type="text" id="Access_id" name="Access_id" placeholder="enter your user id"></td>
+                    </tr>
+                    <tr>
+                        <th width="30%">Enter service name</th>
+                        <td width="2%">:</td>
+                        <td><input type="text" id="service_name" name="service_name" placeholder="Primary care"></td>
+                    </tr>
+                    <tr>
+                        <th width="30%">Email</th>
+                        <td width="2%">:</td>
+                        <td><input type="email" id="email" name="email" placeholder="Enter patient email"></td>
+                    </tr>
+                    <tr>
+                        <th width="30%">Entered on </th>
+                        <td width="2%">:</td>
+                        <td><input type="date" id="date_time" name="date_time" placeholder="Enter date and time"></td>
+                    </tr>
+                    <tr>
+                        <th width="30%">Entered on </th>
+                        <td width="2%">:</td>
+                        <td><input type="date" id="next_visit_date" name="next_visit_date" placeholder="Enter date for next visit"></td>
+                    </tr>
+                </table>
+                
+        </div>
+        <button type="submit">Submit</button>
+        <div class="right-container">
+            <h3 class="gradienttext">Profile Details</h3>
+            <table class="table table-bordered">
+                <tr>
+                    <th width="30%">Notes</th>
+                    <td width="2%">:</td>
+                    <td><textarea id="notes" name="notes" rows="4" cols="50"></textarea></td>
+                </tr>
+                <tr>
+                    <th width="30%">Refer to Hospital for further tests </th>
+                    <td width="2%">:</td>
+                    <td>
+                        <select id="refer_to_hospital" name="refer_to_hospital" required>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>  
+        </form>     
+        </div>
+    </div>
+</body>
+</html>

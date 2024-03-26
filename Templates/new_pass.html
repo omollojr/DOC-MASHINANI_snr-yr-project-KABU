@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New_password</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+    <div class="wrapper">
+        <h2>New password</h2>
+        <form action="{% url 'new_pass.html' %}" method="POST">
+          {%csrf_token%}
+          <div class="input-box">
+            <input type="text" id="password" name="password" placeholder="Enter new password" required>
+          </div>
+          <div class="input-box">
+            <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm password" required>
+          </div>
+          <div class="input-box button">
+            <input type="Submit" value="Update">
+          </div>
+          
+        </form>
+      </div>
+</body>
+</html>
